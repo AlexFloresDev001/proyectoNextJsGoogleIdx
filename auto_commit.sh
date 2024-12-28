@@ -51,16 +51,21 @@ case $type in
     ;;
 esac
 
-# Solicita el mensaje del commit con el mensaje base prellenado
-read -p "Ingrese el mensaje del commit (sugerido: '$base_message'): " message
-if [[ -z "$message" ]]; then
-  message=$base_message
+# Solicita un mensaje adicional al usuario (opcional)
+echo "El mensaje base es: '$base_message'"
+read -p "Ingrese un detalle adicional (o presione Enter para usar el mensaje base): " additional_message
+
+# Construye el mensaje final
+if [[ -z "$additional_message" ]]; then
+  final_message="$base_message"
+else
+  final_message="$base_message $additional_message"
 fi
 
 # Agrega los archivos al stage
 git add .
 
 # Realiza el commit con el formato estándar
-git commit -m "$type: $message"
+git commit -m "$type: $final_message"
 
-echo "Commit realizado con éxito: $type: $message"
+echo "Commit realizado con éxito: $type: $final_message"
