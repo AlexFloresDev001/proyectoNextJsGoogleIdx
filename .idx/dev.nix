@@ -10,6 +10,8 @@
     pkgs.nodePackages.pnpm
     pkgs.bun
     pkgs.openssl_3_0
+    pkgs.git       # Git
+    pkgs.bash-completion # Autocompletado para Bash
   ];
   services.postgres = {
     enable = true;
