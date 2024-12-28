@@ -1,5 +1,6 @@
 {
     "recommendations": [
-        "ms-ceintl.vscode-language-pack-es"
+        "ms-ceintl.vscode-language-pack-es",
+        "mintlify.document"
     ]
 }
